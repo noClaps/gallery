@@ -1,0 +1,11 @@
+* text=auto
+
+.git* text
+*.svg text
+
+*.html text linguist-detectable
+
+*.webp binary
+*.jpg binary
+*.png binary
+*.ico binary
