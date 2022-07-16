@@ -15,6 +15,15 @@
 
     <title>Gallery</title>
     <style>
+        /* Root */
+        html {
+            font-family: system-ui;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
         /* Text selection color */
         ::selection {
             background-color: #ff8f00;
@@ -22,10 +31,6 @@
 
         ::-moz-selection {
             background-color: #ff8f00;
-        }
-
-        html {
-            font-family: system-ui;
         }
 
         /* Header */
@@ -54,7 +59,7 @@
             }
         }
 
-        a {
+        nav a {
             margin-left: 1rem;
             color: inherit;
             text-decoration: none;
@@ -65,7 +70,7 @@
             transition: background-size .25s ease-in-out;
         }
 
-        a:hover {
+        nav a:hover {
             background-size: 100% 2px;
         }
 
@@ -94,6 +99,8 @@
             main {
                 columns: 4;
             }
+        main img {
+            margin-bottom: 0.5rem;
         }
 
         @media (min-width: 800px) {
@@ -108,9 +115,6 @@
             }
         }
 
-        img {
-            width: 100%;
-            margin-bottom: 0.5rem;
         }
     </style>
 </head>
