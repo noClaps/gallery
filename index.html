@@ -87,27 +87,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Lightbox */
-        /* Credits to https://www.youtube.com/watch?v=6j5q-hP8sfk for the excellent Lightbox tutorial */
-        .lightbox-img {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transform: scale(0, 0);
-            transition: transform ease-in-out 0.125s;
-        }
-
-        .lightbox-img:target {
-            transform: scale(1, 1);
-        }
-
-        .lightbox-img img {
             max-width: 100%;
             max-height: 100%;
         }
@@ -123,61 +102,6 @@
         </nav>
     </header>
     <main>
-
-    <div>
-        <a href="#img1" class="lightbox-img" id="1"><img src="./assets/img/full/1.jpg" alt="Model Eiffel Tower"></a>
-        <a href="#img2" class="lightbox-img" id="2"><img src="./assets/img/full/2.jpg" alt="Wall with lights and plants"></a>
-        <a href="#img3" class="lightbox-img" id="3"><img src="./assets/img/full/3.jpg" alt="Bridge"></a>
-        <a href="#img4" class="lightbox-img" id="4"><img src="./assets/img/full/4.jpg" alt="Red flower"></a>
-        <a href="#img5" class="lightbox-img" id="5"><img src="./assets/img/full/5.jpg" alt="Red flower"></a>
-        <a href="#img6" class="lightbox-img" id="6"><img src="./assets/img/full/6.jpg" alt="Grass"></a>
-        <a href="#img7" class="lightbox-img" id="7"><img src="./assets/img/full/7.jpg" alt="Beach chair weave pattern"></a>
-        <a href="#img8" class="lightbox-img" id="8"><img src="./assets/img/full/8.jpg" alt="Bridge"></a>
-        <a href="#img9" class="lightbox-img" id="9"><img src="./assets/img/full/9.jpg" alt="Ship"></a>
-        <a href="#img10" class="lightbox-img" id="10"><img src="./assets/img/full/10.jpg" alt="Pink flower"></a>
-        <a href="#img11" class="lightbox-img" id="11"><img src="./assets/img/full/11.jpg" alt="Goose"></a>
-        <a href="#img12" class="lightbox-img" id="12"><img src="./assets/img/full/12.jpg" alt="Temple on water"></a>
-        <a href="#img13" class="lightbox-img" id="13"><img src="./assets/img/full/13.jpg" alt="Violet flower"></a>
-        <a href="#img14" class="lightbox-img" id="14"><img src="./assets/img/full/14.jpg" alt="White flower"></a>
-        <a href="#img15" class="lightbox-img" id="15"><img src="./assets/img/full/15.jpg" alt="White flower"></a>
-        <a href="#img16" class="lightbox-img" id="16"><img src="./assets/img/full/16.jpg" alt="Yellow flower"></a>
-        <a href="#img18" class="lightbox-img" id="18"><img src="./assets/img/full/18.jpg" alt="White flower"></a>
-        <a href="#img19" class="lightbox-img" id="19"><img src="./assets/img/full/19.jpg" alt="White flower"></a>
-        <a href="#img20" class="lightbox-img" id="20"><img src="./assets/img/full/20.jpg" alt="White flower"></a>
-        <a href="#img21" class="lightbox-img" id="21"><img src="./assets/img/full/21.jpg" alt="Red flower"></a>
-        <a href="#img22" class="lightbox-img" id="22"><img src="./assets/img/full/22.jpg" alt="Purple flower"></a>
-        <a href="#img23" class="lightbox-img" id="23"><img src="./assets/img/full/23.jpg" alt="Hilly landscape"></a>
-        <a href="#img24" class="lightbox-img" id="24"><img src="./assets/img/full/24.jpg" alt="Yellow flower"></a>
-        <a href="#img25" class="lightbox-img" id="25"><img src="./assets/img/full/25.jpg" alt="Pink flower"></a>
-        <a href="#img26" class="lightbox-img" id="26"><img src="./assets/img/full/26.jpg" alt="Pink flower"></a>
-        <a href="#img27" class="lightbox-img" id="27"><img src="./assets/img/full/27.jpg" alt="Dam"></a>
-        <a href="#img28" class="lightbox-img" id="28"><img src="./assets/img/full/28.jpg" alt="Pink flower"></a>
-        <a href="#img29" class="lightbox-img" id="29"><img src="./assets/img/full/29.jpg" alt="Lake and hilly landscape"></a>
-        <a href="#img30" class="lightbox-img" id="30"><img src="./assets/img/full/30.jpg" alt="Ocean waves"></a>
-        <a href="#img31" class="lightbox-img" id="31"><img src="./assets/img/full/31.jpg" alt="Partly cloudy sky"></a>
-        <a href="#img32" class="lightbox-img" id="32"><img src="./assets/img/full/32.jpg" alt="Pink flower"></a>
-        <a href="#img33" class="lightbox-img" id="33"><img src="./assets/img/full/33.jpg" alt="Red flower"></a>
-        <a href="#img34" class="lightbox-img" id="34"><img src="./assets/img/full/34.jpg" alt="White flower"></a>
-        <a href="#img35" class="lightbox-img" id="35"><img src="./assets/img/full/35.jpg" alt="White and pink flowers"></a>
-        <a href="#img36" class="lightbox-img" id="36"><img src="./assets/img/full/36.jpg" alt="White flower"></a>
-        <a href="#img37" class="lightbox-img" id="37"><img src="./assets/img/full/37.jpg" alt="Yellow flower"></a>
-        <a href="#img38" class="lightbox-img" id="38"><img src="./assets/img/full/38.jpg" alt="Pink flower"></a>
-        <a href="#img39" class="lightbox-img" id="39"><img src="./assets/img/full/39.jpg" alt="Pink flower"></a>
-        <a href="#img40" class="lightbox-img" id="40"><img src="./assets/img/full/40.jpg" alt="White flower"></a>
-        <a href="#img41" class="lightbox-img" id="41"><img src="./assets/img/full/41.jpg" alt="White flower"></a>
-        <a href="#img42" class="lightbox-img" id="42"><img src="./assets/img/full/42.jpg" alt="Red flower"></a>
-        <a href="#img43" class="lightbox-img" id="43"><img src="./assets/img/full/43.jpg" alt="Red flower"></a>
-        <a href="#img44" class="lightbox-img" id="44"><img src="./assets/img/full/44.jpg" alt="Pink flower"></a>
-        <a href="#img45" class="lightbox-img" id="45"><img src="./assets/img/full/45.jpg" alt="Pink flower"></a>
-        <a href="#img46" class="lightbox-img" id="46"><img src="./assets/img/full/46.jpg" alt="Pink flowers"></a>
-        <a href="#img47" class="lightbox-img" id="47"><img src="./assets/img/full/47.jpg" alt="Moon over ocean"></a>
-        <a href="#img48" class="lightbox-img" id="48"><img src="./assets/img/full/48.jpg" alt="White flower"></a>
-        <a href="#img49" class="lightbox-img" id="49"><img src="./assets/img/full/49.jpg" alt="Red flower"></a>
-        <a href="#img50" class="lightbox-img" id="50"><img src="./assets/img/full/50.jpg" alt="Pink flower"></a>
-        <a href="#img51" class="lightbox-img" id="51"><img src="./assets/img/full/51.jpg" alt="Forest reflection"></a>
-        <a href="#img52" class="lightbox-img" id="52"><img src="./assets/img/full/52.jpg" alt="Yellow flower"></a>
-        <a href="#img53" class="lightbox-img" id="53"><img src="./assets/img/full/53.jpg" alt="Lake and forest"></a>
-    </div>
         <img src="./assets/img/1.webp" alt="Model Eiffel Tower">
         <img src="./assets/img/2.webp" alt="Wall with lights and plants">
         <img src="./assets/img/3.webp" alt="Bridge">
