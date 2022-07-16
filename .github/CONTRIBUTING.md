@@ -10,8 +10,8 @@ You can open an issue by heading to the Issues tab and clicking on New issue. Th
 #### Bug
 This type of issue is related to any bugs you find in the website, such as a rendering issue or a certain element or font not displaying properly. If you've found a bug in the website, let me know what and where it is. A screenshot would be helpful too. Before you do submit the issue, make sure that you're using the latest versions of both your OS and browser, and test that the bug shows up even after updating. This would seriously help clearing up unnecessary issues that shouldn't have been opened in the first place, and would save time.
 
-#### Idea
-This type of issue is meant for you to provide ideas for features to add to the website. However, I have a few rules:
+#### Improvement
+This type of issue is meant for you to provide ideas for features to add to the website, and improvements in general. However, I have a few rules:
 
 1. No JavaScript. I will close any issues that suggest using JS to add a feature.
 2. Nothing should hurt the performance of the website. If you have suggestions to improve performance, I'm more than happy to listen. However, if your suggestion reduces performance, I will not implement it and/or revert any commits I have made related to that feature.
