@@ -1,0 +1,19 @@
+<!-- jQuery -->
+<script src="./public/jquery.min.js"></script>
+<!-- LightGallery -->
+<script src="./public/lightgallery/js/lightgallery.js"></script>
+<script src="./public/lightgallery/js/lg-autoplay.js"></script>
+<script src="./public/lightgallery/js/lg-pager.js"></script>
+<script src="./public/lightgallery/js/lg-thumbnail.js"></script>
+<script>
+      $(document).ready(function() {
+        $("#media").lightGallery({
+          thumbWidth: 80,
+          controls: true,
+          loop : false,
+          download: true,
+          counter: true,
+          videojs: false
+        });
+      });
+    </script>

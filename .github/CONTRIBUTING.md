@@ -13,16 +13,12 @@ This type of issue is related to any bugs you find in the website, such as a ren
 #### Improvement
 This type of issue is meant for you to provide ideas for features to add to the website, and improvements in general. However, I have a few rules:
 
-1. No JavaScript. I will close any issues that suggest using JS to add a feature.
-2. Nothing should hurt the performance of the website. If you have suggestions to improve performance, I'm more than happy to listen. However, if your suggestion reduces performance, I will not implement it and/or revert any commits I have made related to that feature.
-3. No image suggestions. I will add whatever images I want, when I want to add them.
-4. No external resources. One of the main goals of this project is to have the entire thing be unreliant on any outside code/resources. This means no CDNs, no external stylesheets, no services outside of GitHub and GitHub Pages, etc.
+1. No image suggestions. I will add whatever images I want, when I want to add them.
+2. No external resources. One of the main goals of this project is to have the entire thing be unreliant on any outside code/resources. This means no CDNs, no external stylesheets, no services outside of GitHub and GitHub Pages, etc.
 
 ## Pull Requests (PRs)
 Only modifications to `index.html` are allowed. The rules are as follows:
 
-1. No adding any Javascript.
-2. Nothing should hurt the performance of the website. You can use Lighthouse or some other performance testing tool to check the performance of the website and compare it to the original.
-3. No adding your own images or modifying pre-existing images.
-4. No adding external resources such as CDNs, links to stylesheets, no services outside GitHub and GitHub Pages, etc.
-5. It is your responsibility to keep up to date with the main repository on your branch.
+1. No adding your own images or modifying pre-existing images.
+2. No adding external resources such as CDNs, links to stylesheets, no services outside GitHub and GitHub Pages, etc.
+3. It is your responsibility to keep up to date with the main repository on your branch.

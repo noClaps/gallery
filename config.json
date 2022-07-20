@@ -1,0 +1,11 @@
+{
+    "input": "./Photos/",
+    "output": "./dist/",
+    "photo-quality": 100,
+    "photo-preview": "copy",
+    "photo-download": "copy",
+    "cleanup": true,
+    "theme-path": "./theme/",
+    "theme-style": "./theme/theme.less",
+    "theme-settings": "./theme/theme.json"
+}

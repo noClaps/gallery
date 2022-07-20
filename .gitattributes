@@ -3,9 +3,9 @@
 .git* text
 *.svg text
 
-*.html text linguist-detectable
+*.hbs text linguist-detectable
+*.json text linguist-detectable
+*.less text linguist-detectable
 
-*.webp binary
-*.jpg binary
 *.png binary
 *.ico binary

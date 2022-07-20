@@ -2,7 +2,6 @@
 
 - [ ] I have tested my changes on my device and it is working.
 - [ ] I am not adding malicious code that may harm the privacy or security of the reader.
-- [ ] I am not adding any JavaScript or external code.
 
 <!-- Make a list of changes you've made so far here. If you add on more changes later, you can edit the list later. -->
 **Changes**:

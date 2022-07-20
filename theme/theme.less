@@ -1,0 +1,64 @@
+// Root
+html {
+    font-family: sans-serif;
+    background-image: linear-gradient(to left, #ff8f00, #ff5a5b, #ec4797, #a159be, #1565c0);
+}
+
+// Text selection color
+::selection {
+    background-color: #ff8f00;
+}
+
+::-moz-selection {
+    background-color: #ff8f00;
+}
+
+// Header
+header {
+    margin: 1.5rem;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #fff;
+    margin-bottom: 0;
+}
+
+header h1 {
+    color: #fff;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.125rem;
+}
+
+nav a {
+    margin: 0 0.5rem;
+    color: #fff;
+}
+
+// Gallery
+// Credits to https://www.youtube.com/watch?v=-isQPqqnIBo for the excellent Masonry grid tutorial
+main {
+    columns: 20rem auto;
+    column-gap: 0.5rem;
+    margin: 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+li {
+    list-style-type: none;
+}

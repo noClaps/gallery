@@ -1,0 +1,18 @@
+{{#with album}}
+{{> head}}
+{{> header}}
+
+<main id="media">
+    {{#each files}}
+    <li data-src="{{relative urls.large}}" data-sub-html data-download-url="{{relative urls.download}}"
+        data-filename="{{filename}}">
+        <a href="{{relative urls.large}}">
+            <img src="{{relative urls.large}}">
+        </a>
+    </li>
+    {{/each}}
+</main>
+
+{{> javascript}}
+
+{{/with}}
