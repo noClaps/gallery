@@ -37,12 +37,12 @@ nav a {
   color: #fff;
 }
 main {
-  columns: 20rem auto;
+  columns: 16rem auto;
   column-gap: 0.5rem;
   margin: 1.5rem;
 }
 img {
-  max-width: 100%;
+  width: 100%;
   margin-bottom: 0.5rem;
 }
 li {
@@ -87,12 +87,12 @@ nav a {
   color: #fff;
 }
 main {
-  columns: 20rem auto;
+  columns: 16rem auto;
   column-gap: 0.5rem;
   margin: 1.5rem;
 }
 img {
-  max-width: 100%;
+  width: 100%;
   margin-bottom: 0.5rem;
 }
 li {

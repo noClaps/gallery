@@ -1,2 +1,4 @@
 Photos/
 deploy.sh
+dist/thumbsup.log
+dist/thumbsup.db
