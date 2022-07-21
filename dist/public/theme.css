@@ -53,10 +53,12 @@ nav a {
   margin: 0 0.5rem;
   color: var(--text);
 }
-main {
+ul {
   columns: 16rem auto;
   column-gap: 0.5rem;
   margin: 1.5rem;
+  list-style-type: none;
+  padding-inline-start: 0;
 }
 img {
   width: 100%;
@@ -120,10 +122,12 @@ nav a {
   margin: 0 0.5rem;
   color: var(--text);
 }
-main {
+ul {
   columns: 16rem auto;
   column-gap: 0.5rem;
   margin: 1.5rem;
+  list-style-type: none;
+  padding-inline-start: 0;
 }
 img {
   width: 100%;
