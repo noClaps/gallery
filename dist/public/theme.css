@@ -1,12 +1,29 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --accent: rgba(255, 143, 0, 0.5);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #ffffff;
+    --accent: rgba(21, 101, 192, 0.5);
+  }
+}
 html {
   font-family: sans-serif;
-  background-image: linear-gradient(to left, #ff8f00, #ff5a5b, #ec4797, #a159be, #1565c0);
+  background-image: linear-gradient(to left, rgba(255, 143, 0, 0.5), rgba(255, 90, 91, 0.5), rgba(236, 71, 151, 0.5), rgba(162, 90, 191, 0.5), rgba(21, 101, 192, 0.5));
+  background-color: var(--bg);
 }
 ::selection {
-  background-color: #ff8f00;
+  background-color: var(--accent);
+  color: var(--text);
 }
 ::-moz-selection {
-  background-color: #ff8f00;
+  background-color: var(--accent);
+  color: var(--text);
 }
 header {
   margin: 1.5rem;
@@ -16,11 +33,11 @@ header {
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid --text;
   margin-bottom: 0;
 }
 header h1 {
-  color: #fff;
+  color: var(--text);
   text-align: center;
 }
 nav {
@@ -34,7 +51,7 @@ nav {
 }
 nav a {
   margin: 0 0.5rem;
-  color: #fff;
+  color: var(--text);
 }
 main {
   columns: 16rem auto;
@@ -48,15 +65,32 @@ img {
 li {
   list-style-type: none;
 }
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --accent: rgba(255, 143, 0, 0.5);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #ffffff;
+    --accent: rgba(21, 101, 192, 0.5);
+  }
+}
 html {
   font-family: sans-serif;
-  background-image: linear-gradient(to left, #ff8f00, #ff5a5b, #ec4797, #a159be, #1565c0);
+  background-image: linear-gradient(to left, rgba(255, 143, 0, 0.5), rgba(255, 90, 91, 0.5), rgba(236, 71, 151, 0.5), rgba(162, 90, 191, 0.5), rgba(21, 101, 192, 0.5));
+  background-color: var(--bg);
 }
 ::selection {
-  background-color: #ff8f00;
+  background-color: var(--accent);
+  color: var(--text);
 }
 ::-moz-selection {
-  background-color: #ff8f00;
+  background-color: var(--accent);
+  color: var(--text);
 }
 header {
   margin: 1.5rem;
@@ -66,11 +100,11 @@ header {
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid --text;
   margin-bottom: 0;
 }
 header h1 {
-  color: #fff;
+  color: var(--text);
   text-align: center;
 }
 nav {
@@ -84,7 +118,7 @@ nav {
 }
 nav a {
   margin: 0 0.5rem;
-  color: #fff;
+  color: var(--text);
 }
 main {
   columns: 16rem auto;
