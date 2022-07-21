@@ -1,8 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
 {{#with album}}
 {{> head}}
 {{> header}}
 
-<main id="media">
+<ul id="media">
     {{#each files}}
     <li data-src="{{relative urls.large}}" data-sub-html data-download-url="{{relative urls.download}}"
         data-filename="{{filename}}">
@@ -16,3 +19,5 @@
 {{> javascript}}
 
 {{/with}}
+
+</html>
