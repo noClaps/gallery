@@ -1,0 +1,39 @@
+---
+import { Icon } from "@noclaps/components";
+---
+
+<header>
+    <a href="https://github.com/noClaps/assets/archive/refs/tags/2023-09-05.zip"
+        ><Icon name="download" />Download</a
+    >
+</header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: end;
+        padding: 2vh 1vw;
+    }
+
+    a {
+        padding: 0.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-weight: bold;
+        color: canvastext;
+        text-decoration: none;
+        transition: all 0.25s;
+        border-radius: 0.25rem;
+
+        &:hover {
+            background-color: accentcolor;
+            color: accentcolortext;
+        }
+    }
+
+    svg {
+        height: 1rem;
+        width: 1rem;
+    }
+</style>

@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+const images = await Astro.glob("../assets/*.{jpg,jpeg}");
+---
+
+<div>
+    {
+        images
+            .map((img) => <Image src={img.default} alt="" format="avif" />)
+            .reverse()
+    }
+</div>
+
+<style>
+    div {
+        columns: 16rem auto;
+        gap: 0.5rem;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 0.5rem;
+        height: auto;
+        margin: 0.25rem 0;
+    }
+</style>

@@ -1,0 +1,31 @@
+---
+import Gallery from "../components/Gallery.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Aperturic Focus">
+  <main>
+    <h1>Aperturic Focus</h1>
+    <p>A website to showcase some cool photos I've taken.</p>
+    <Gallery />
+  </main>
+</BaseLayout>
+
+<style>
+  p {
+    font-size: 2rem;
+    line-height: 1.25;
+    text-align: left;
+  }
+
+  h1 {
+    font-size: min(5rem, 15vmin);
+    color: accentcolor;
+    margin-bottom: 0;
+  }
+
+  main {
+    width: min(64rem, 88dvw);
+    margin: auto;
+  }
+</style>

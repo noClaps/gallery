@@ -1,0 +1,17 @@
+{
+  "name": "@noclaps/gallery",
+  "description": "Aperturic Focus",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@noclaps/components": "github:noclaps/components",
+    "astro": "^4.0.3",
+    "sharp": "^0.33.0"
+  }
+}
