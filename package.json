@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@noclaps/components": "github:noclaps/components",
     "astro": "^4.0.3",
     "sharp": "^0.33.0"
   }
