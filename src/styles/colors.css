@@ -1,0 +1,17 @@
+:root {
+    @media (prefers-color-scheme: light) {
+        --text: oklch(17.2% 0.009 153.64);
+        --background: oklch(97.28% 0.009 161.32);
+        --primary: oklch(72.56% 0.183 151.21);
+        --secondary: oklch(86.11% 0.145 153.92);
+        --accent: oklch(87.51% 0.252 149.5);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --text: oklch(95.72% 0.006 154.48);
+        --background: oklch(15.45% 0.015 160.32);
+        --primary: oklch(72.56% 0.183 151.21);
+        --secondary: oklch(51.36% 0.146 149.68);
+        --accent: oklch(74.75% 0.24 147.32);
+    }
+}
