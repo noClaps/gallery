@@ -1,18 +1,49 @@
 ---
 import { Image } from "astro:assets";
-const images = await Astro.glob("../assets/*.{jpg,jpeg}");
+
+const images2019 = await Astro.glob(`../assets/2019/*.{jpg,jpeg}`);
+const images2021 = await Astro.glob(`../assets/2021/*.{jpg,jpeg}`);
+const images2022 = await Astro.glob(`../assets/2022/*.{jpg,jpeg}`);
+const images2023 = await Astro.glob(`../assets/2023/*.{jpg,jpeg}`);
 ---
 
-<div>
-    {
-        images
-            .map((img) => <Image src={img.default} alt="" format="avif" />)
-            .reverse()
-    }
+<div class="gallery">
+    <h2>2019</h2>
+    <section id="2019">
+        {
+            images2019
+                .map((img) => <Image src={img.default} alt="" format="avif" />)
+                .reverse()
+        }
+    </section>
+    <h2>2021</h2>
+    <section id="2021">
+        {
+            images2021
+                .map((img) => <Image src={img.default} alt="" format="avif" />)
+                .reverse()
+        }
+    </section>
+    <h2>2022</h2>
+    <section id="2022">
+        {
+            images2022
+                .map((img) => <Image src={img.default} alt="" format="avif" />)
+                .reverse()
+        }
+    </section>
+    <h2>2023</h2>
+    <section id="2023">
+        {
+            images2023
+                .map((img) => <Image src={img.default} alt="" format="avif" />)
+                .reverse()
+        }
+    </section>
 </div>
 
 <style>
-    div {
+    section {
         columns: 16rem auto;
         gap: 0.5rem;
     }
