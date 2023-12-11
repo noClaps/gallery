@@ -2,6 +2,7 @@
 import Gallery from "../components/Gallery.astro";
 
 import "@/styles/colors.css";
+import "@/styles/style.css";
 ---
 
 <html lang="en">
@@ -18,80 +19,15 @@ import "@/styles/colors.css";
     <aside>
       <h1>Aperturic Focus</h1>
       <p>A website to showcase some cool photos I've taken.</p>
-      <section>
+      <nav>
         <a href="#2023">2023</a>
         <a href="#2022">2022</a>
         <a href="#2021">2021</a>
         <a href="#2019">2019</a>
-      </section>
+      </nav>
     </aside>
-    <main> 
+    <main>
       <Gallery />
     </main>
   </body>
 </html>
-
-<style>
-  :root {
-    color-scheme: dark light;
-    font-family: system-ui;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: var(--background);
-    color: var(--text)
-    margin: 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    padding: 1rem;
-    gap: 1rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: unset;
-      grid-template-rows: auto 1fr;
-    }
-  }
-
-  p {
-    font-size: 1.5rem;
-  }
-
-  h1 {
-    font-size: min(3rem, 10vmin);
-    color: var(--accent);
-    margin-top: 0.5rem;
-  }
-
-  main {
-    width: min(64rem, 88dvw);
-    margin: auto;
-  }
-
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  a {
-    color: var(--text);
-    font-weight: bold;
-    text-decoration: none;
-    width: fit-content;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.25s;
-
-    &:hover {
-      background-color: var(--primary);
-      color: var(--on-primary);
-    }
-  }
-
-  aside {
-    position: sticky;
-    top: 1.5rem;
-    height: fit-content;
-  }
-</style>
