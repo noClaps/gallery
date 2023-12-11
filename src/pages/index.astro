@@ -1,31 +1,29 @@
 ---
+import Nav from "@/components/Nav.astro";
 import Gallery from "../components/Gallery.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
+
+import "@/styles/colors.css";
+import "@/styles/style.css";
 ---
 
-<BaseLayout title="Aperturic Focus">
-  <main>
-    <h1>Aperturic Focus</h1>
-    <p>A website to showcase some cool photos I've taken.</p>
-    <Gallery />
-  </main>
-</BaseLayout>
-
-<style>
-  p {
-    font-size: 2rem;
-    line-height: 1.25;
-    text-align: left;
-  }
-
-  h1 {
-    font-size: min(5rem, 15vmin);
-    color: var(--accent);
-    margin-bottom: 0;
-  }
-
-  main {
-    width: min(64rem, 88dvw);
-    margin: auto;
-  }
-</style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A website to showcase some cool photos I've taken."
+    />
+    <title>Aperturic Focus</title>
+  </head>
+  <body>
+    <aside>
+      <h1>Aperturic Focus</h1>
+      <p>A website to showcase some cool photos I've taken.</p>
+      <Nav />
+    </aside>
+    <main>
+      <Gallery />
+    </main>
+  </body>
+</html>
