@@ -31,5 +31,5 @@ All of the photos in this repository are licensed under the [CC0-1.0 license](./
 The licenses of all dependencies are in their respective folders in `node_modules/` when you install them
 with `npm install`.
 
-[Astro](https://astro.build/), the static site generator used to generate these sites, is licensed under
+[Astro](https://astro.build/), the static site generator used to generate this site, is licensed under
 the [MIT license](https://github.com/withastro/astro/blob/main/LICENSE).
