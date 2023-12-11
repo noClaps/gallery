@@ -8,32 +8,32 @@ const images2023 = await Astro.glob(`../assets/2023/*.{jpg,jpeg}`);
 ---
 
 <div class="gallery">
-    <h2>2023</h2>
-    <section id="2023">
+    <h2 id="2023">2023</h2>
+    <section>
         {
             images2023
                 .map((img) => <Image src={img.default} alt="" format="avif" />)
                 .reverse()
         }
     </section>
-    <h2>2022</h2>
-    <section id="2022">
+    <h2 id="2022">2022</h2>
+    <section>
         {
             images2022
                 .map((img) => <Image src={img.default} alt="" format="avif" />)
                 .reverse()
         }
     </section>
-    <h2>2021</h2>
-    <section id="2021">
+    <h2 id="2021">2021</h2>
+    <section>
         {
             images2021
                 .map((img) => <Image src={img.default} alt="" format="avif" />)
                 .reverse()
         }
     </section>
-    <h2>2019</h2>
-    <section id="2019">
+    <h2 id="2019">2019</h2>
+    <section>
         {
             images2019
                 .map((img) => <Image src={img.default} alt="" format="avif" />)
