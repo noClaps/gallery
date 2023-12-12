@@ -1,6 +1,6 @@
 :root {
     color-scheme: dark light;
-    font-family: system-ui;
+    font-family: "Outfit", system-ui;
     scroll-behavior: smooth;
 }
 
@@ -30,6 +30,7 @@ h1 {
     font-size: min(3rem, 10vmin);
     color: var(--accent);
     margin-top: 0.5rem;
+    font-family: "Plus Jakarta Sans", system-ui;
 }
 
 aside {
