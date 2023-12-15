@@ -3,8 +3,8 @@
   "description": "Aperturic Focus",
   "type": "module",
   "scripts": {
-    "build": "chmod +x ./build && ./build",
-    "turbo": "turbo"
+    "build-script": "chmod +x ./build && ./build",
+    "build": "turbo build-script"
   },
   "dependencies": {
     "bun-types": "latest",
