@@ -16,3 +16,4 @@ bun ./build-tools/images.ts
 
 # Build HTML
 bun ./build-tools/html.ts
+rm -rf ./tmp/
