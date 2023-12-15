@@ -1,5 +1,23 @@
+import { transform, Features } from "lightningcss";
 import sharp from "sharp";
 
+// Favicon
+Bun.write("./dist/favicon.ico", Bun.file("./public/favicon.ico"));
+
+// CSS
+console.log("Building CSS...");
+const { code } = transform({
+    filename: "style.css",
+    code: Buffer.from(await Bun.file("./src/styles/style.css").arrayBuffer()),
+    minify: true,
+    include: Object.values(Features).reduce((sum, a) => sum + a, 0)
+});
+
+Bun.write("./dist/style.css", code.toString());
+console.log("Done!");
+
+// Images and HTML
+console.log("Optimising images and building HTML...");
 const rewriter = new HTMLRewriter();
 const glob = new Bun.Glob("*.{jpg,jpeg}");
 
@@ -28,3 +46,4 @@ rewriter.on("section", {
 });
 
 Bun.write("./dist/index.html", rewriter.transform(new Response(Bun.file("./src/pages/index.html"))));
+console.log("Done!");
