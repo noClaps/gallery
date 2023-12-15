@@ -20,19 +20,7 @@ echo "Done!"
 echo
 
 # Build images
-echo "Optimising images..."
-mkdir -p ./tmp/
-bun ./build-tools/images.ts
-echo "Done!"
-echo
-
-# Build HTML
-echo "Writing HTML..."
+echo "Optimising images and building HTML..."
 bun ./build-tools/html.ts
 echo "Done!"
-echo
 
-# Cleanup
-echo "Cleaning up..."
-rm -rf ./tmp/
-echo "Done!"
