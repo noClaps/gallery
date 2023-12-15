@@ -1,9 +1,10 @@
 ---
-import Nav from "@/components/Nav.astro";
-import Gallery from "../components/Gallery.astro";
-
-import "@/styles/colors.css";
+import { Image } from "astro:assets";
 import "@/styles/style.css";
+const images2019 = await Astro.glob(`../assets/2019/*.{jpg,jpeg}`);
+const images2021 = await Astro.glob(`../assets/2021/*.{jpg,jpeg}`);
+const images2022 = await Astro.glob(`../assets/2022/*.{jpg,jpeg}`);
+const images2023 = await Astro.glob(`../assets/2023/*.{jpg,jpeg}`);
 ---
 
 <html lang="en">
@@ -25,10 +26,48 @@ import "@/styles/style.css";
     <aside>
       <h1>Aperturic Focus</h1>
       <p>A website to showcase some cool photos I've taken.</p>
-      <Nav />
+      <nav>
+        <a href="#2023">2023</a>
+        <a href="#2022">2022</a>
+        <a href="#2021">2021</a>
+        <a href="#2019">2019</a>
+      </nav>
     </aside>
     <main>
-      <Gallery />
+      <div class="gallery">
+        <h2 id="2023">2023</h2>
+        <section>
+          {
+            images2023
+              .map((img) => <Image src={img.default} alt="" format="avif" />)
+              .reverse()
+          }
+        </section>
+        <h2 id="2022">2022</h2>
+        <section>
+          {
+            images2022
+              .map((img) => <Image src={img.default} alt="" format="avif" />)
+              .reverse()
+          }
+        </section>
+        <h2 id="2021">2021</h2>
+        <section>
+          {
+            images2021
+              .map((img) => <Image src={img.default} alt="" format="avif" />)
+              .reverse()
+          }
+        </section>
+        <h2 id="2019">2019</h2>
+        <section>
+          {
+            images2019
+              .map((img) => <Image src={img.default} alt="" format="avif" />)
+              .reverse()
+          }
+        </section>
+      </div>
     </main>
   </body>
 </html>
