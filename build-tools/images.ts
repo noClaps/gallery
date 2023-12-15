@@ -16,6 +16,7 @@ for (const year of years) {
                 Bun.write(`./dist/images/${ filename }`, buffer);
                 writer.write(`<img src="/images/${ filename }" width="${ info.width }" height="${ info.height }" loading="lazy" decoding="async">`);
                 writer.flush();
+                console.log(`Optimised ${ filename }`);
             });
     }
 }

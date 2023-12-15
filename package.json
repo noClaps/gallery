@@ -3,11 +3,13 @@
   "description": "Aperturic Focus",
   "type": "module",
   "scripts": {
-    "build": "chmod +x ./build && ./build"
+    "build": "chmod +x ./build && ./build",
+    "turbo": "turbo"
   },
   "dependencies": {
     "bun-types": "latest",
     "lightningcss": "^1.22.1",
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.0",
+    "turbo": "^1.11.2"
   }
 }

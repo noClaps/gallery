@@ -1,22 +1,32 @@
 #!/bin/bash
 
 # Upgrade bun before starting build
-bun upgrade
-
-# Clear dist/ and tmp/ if they exist
-rm -rf ./dist/ ./tmp/
+echo "Upgrading Bun"
+bun upgrade --silent
+echo "Done!"
+echo
 
 # Copy public files
+echo "Copying files in public/..."
 mkdir -p ./dist/
 cp ./public/* ./dist/
+echo "Done!"
+echo
 
 # Build CSS
+echo "Building CSS..."
 bun ./build-tools/css.ts
+echo "Done!"
+echo
 
 # Build images
+echo "Optimising images..."
 mkdir -p ./tmp/
 bun ./build-tools/images.ts
+echo "Done!"
+echo
 
 # Build HTML
+echo "Writing HTML..."
 bun ./build-tools/html.ts
-rm -rf ./tmp/
+echo "Done!"
