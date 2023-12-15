@@ -3,14 +3,12 @@
   "description": "Aperturic Focus",
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && astro preview",
-    "astro": "astro"
+    "build": "chmod +x ./build && ./build"
   },
   "dependencies": {
-    "astro": "^4.0.5",
+    "bun-types": "latest",
+    "lightningcss": "^1.22.1",
+    "lightningcss-cli": "^1.22.1",
     "sharp": "^0.33.0"
   }
 }

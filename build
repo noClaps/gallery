@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Clear dist/ and tmp/ if they exist
+rm -rf ./dist/ ./tmp/
+
+# Copy public files
+mkdir -p ./dist/
+cp ./public/* ./dist/
+
+# Build CSS
+bun ./build-tools/css.ts
+
+# Build images
+mkdir -p ./tmp/
+bun ./build-tools/images.ts
+
+# Build HTML
+bun ./build-tools/html.ts
