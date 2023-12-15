@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Upgrade bun before starting build
+bun upgrade
+
 # Clear dist/ and tmp/ if they exist
 rm -rf ./dist/ ./tmp/
 
