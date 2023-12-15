@@ -1,8 +1,7 @@
-import { Glob, file, write } from "bun";
 import sharp from "sharp";
 
 const rewriter = new HTMLRewriter();
-const glob = new Glob("*.{jpg,jpeg}");
+const glob = new Bun.Glob("*.{jpg,jpeg}");
 
 rewriter.on("section", {
     async element(element) {
@@ -28,4 +27,4 @@ rewriter.on("section", {
     },
 });
 
-write("./dist/index.html", rewriter.transform(new Response(file("./src/pages/index.html"))));
+Bun.write("./dist/index.html", rewriter.transform(new Response(Bun.file("./src/pages/index.html"))));
