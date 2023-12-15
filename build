@@ -30,3 +30,9 @@ echo
 echo "Writing HTML..."
 bun ./build-tools/html.ts
 echo "Done!"
+echo
+
+# Cleanup
+echo "Cleaning up..."
+rm -rf ./tmp/
+echo "Done!"
