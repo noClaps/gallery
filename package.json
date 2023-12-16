@@ -2,7 +2,7 @@
   "name": "@noclaps/gallery",
   "description": "Aperturic Focus",
   "scripts": {
-    "build": "bun build.ts",
+    "build": "bun upgrade && bun build.ts",
     "preview": "bunx serve dist"
   },
   "type": "module",
