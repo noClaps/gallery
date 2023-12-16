@@ -1,5 +1,6 @@
 ---
-import Nav from "@/components/Nav.astro";
+import Head from "@/components/Head.astro";
+import Sidebar from "@/components/Sidebar.astro";
 import Gallery from "../components/Gallery.astro";
 
 import "@/styles/colors.css";
@@ -7,26 +8,9 @@ import "@/styles/style.css";
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="A website to showcase some cool photos I've taken."
-    />
-    <meta name="generator" content={Astro.generator} />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@1&f[]=outfit@1&display=swap"
-      rel="stylesheet"
-    />
-    <title>Aperturic Focus</title>
-  </head>
+  <Head />
   <body>
-    <aside>
-      <h1>Aperturic Focus</h1>
-      <p>A website to showcase some cool photos I've taken.</p>
-      <Nav />
-    </aside>
+    <Sidebar />
     <main>
       <Gallery />
     </main>
