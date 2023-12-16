@@ -1,9 +1,5 @@
 {
   "name": "@noclaps/gallery",
-  "module": "index.ts",
-  "devDependencies": {
-    "bun-types": "latest"
-  },
   "description": "Aperturic Focus",
   "scripts": {
     "build": "bun build.ts",
@@ -11,6 +7,7 @@
   },
   "type": "module",
   "dependencies": {
+    "bun-types": "latest",
     "sharp": "^0.33.0"
   }
 }
