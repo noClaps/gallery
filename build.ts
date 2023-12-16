@@ -20,18 +20,20 @@ rw.on("section", {
 
         for (const img of images) {
             const filename = img.replace(/jpe?g/, "avif");
-            await sharp(`./dist/images/${ filename }`).metadata().then((metadata) => {
-                console.log(`${ filename } already exists!`);
+            await sharp(`./src/assets/${ year }/${ img }`).metadata().then(metadata => {
                 element.append(`<img src="/images/${ filename }" width="${ metadata.width }" height="${ metadata.height }" loading="lazy" decoding="async">`, { html: true });
-            }).catch(() => {
+            });
+
+            if (!(await Bun.file(`./dist/images/${ filename }`).exists())) {
                 sharp(`./src/assets/${ year }/${ img }`)
                     .toFormat("avif")
-                    .toBuffer((_, buffer, info) => {
+                    .toBuffer((_, buffer) => {
                         Bun.write(`./dist/images/${ filename }`, buffer);
-                        element.append(`<img src="/images/${ filename }" width="${ info.width }" height="${ info.height }" loading="lazy" decoding="async">`, { html: true });
                         console.log(`Optimised ${ filename }`);
                     });
-            });
+            } else {
+                console.log(`${ filename } already exists!`);
+            }
         }
     },
 });
