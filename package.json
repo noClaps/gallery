@@ -2,12 +2,14 @@
   "name": "@noclaps/gallery",
   "description": "Aperturic Focus",
   "scripts": {
-    "build": "bun upgrade && bun build.ts",
+    "build-cmd": "bun upgrade && bun build.ts",
+    "build": "turbo build-cmd",
     "preview": "bunx serve dist"
   },
   "type": "module",
   "dependencies": {
     "bun-types": "latest",
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.0",
+    "turbo": "^1.11.2"
   }
 }
