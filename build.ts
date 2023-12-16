@@ -12,7 +12,6 @@ Bun.write("./dist/favicon.ico", Bun.file("./src/favicon.ico")).then(() => {
 
 const rw = new HTMLRewriter();
 const glob = new Bun.Glob("*.{jpg,jpeg}");
-sharp.cache(false);
 
 rw.on("section", {
     async element(element) {
