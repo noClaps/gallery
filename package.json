@@ -1,15 +1,15 @@
 {
   "name": "@noclaps/gallery",
   "description": "Aperturic Focus",
-  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro build && astro preview",
-    "astro": "astro"
+    "build": "chmod +x ./images && ./images && bun build.ts",
+    "serve": "bunx serve dist"
   },
+  "type": "module",
+  "module": "index.ts",
   "dependencies": {
-    "astro": "^4.0.6"
+    "@types/bun": "latest",
+    "lightningcss": "^1.22.1",
+    "sharp": "^0.33.1"
   }
 }

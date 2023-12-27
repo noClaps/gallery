@@ -10,26 +10,18 @@ A website to showcase some cool photos I've taken.
     ```
 
 2.  ```sh
-    npm install
-    npm run dev
+    bun install
+    bun run build
     ```
-
-    Then open `localhost:4321` in your browser to see the live preview of the site.
+    This will build the site and place it in `dist/`.
 
 3.  ```sh
-    npm run build
+    bun serve
     ```
-    
-    This will build the site and place it in `dist/`.
+    This will start a development server from the built files.
 
 ## Licenses
 
 All of the code in this repository is under the [0BSD license](./LICENSE), unless specified otherwise.
 
 All of the photos in this repository are licensed under the [CC0-1.0 license](./src/assets/LICENSE).
-
-The licenses of all dependencies are in their respective folders in `node_modules/` when you install them
-with `npm install`.
-
-[Astro](https://astro.build/), the static site generator used to generate this site, is licensed under
-the [MIT license](https://github.com/withastro/astro/blob/main/LICENSE).

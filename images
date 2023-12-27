@@ -1,0 +1,12 @@
+#!/bin/bash
+
+mkdir -p ./dist/assets/
+for file in `find ./src/assets/**/*.{jpg,jpeg}`
+    do filename=${file/jpeg/avif}
+    filename=${filename/jpg/avif}
+    filename=$(echo $filename | cut -d'/' -f 5)
+
+    if ! [ -f ./dist/assets/$filename ]; then
+        vips heifsave $file ./dist/assets/$filename
+    fi
+done
