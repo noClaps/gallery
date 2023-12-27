@@ -1,4 +1,5 @@
 #!/bin/bash
+yum search vips
 
 mkdir -p ./dist/assets/
 for file in `find ./src/assets/**/*.{jpg,jpeg}`
