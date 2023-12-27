@@ -1,5 +1,5 @@
 #!/bin/bash
-yum search vips
+amazon-linux-extras
 
 mkdir -p ./dist/assets/
 for file in `find ./src/assets/**/*.{jpg,jpeg}`
