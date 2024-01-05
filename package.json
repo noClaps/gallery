@@ -2,7 +2,8 @@
   "name": "@noclaps/gallery",
   "description": "Aperturic Focus",
   "scripts": {
-    "build": "make"
+    "build": "make",
+    "serve": "bunx serve dist"
   },
   "type": "module",
   "dependencies": {
