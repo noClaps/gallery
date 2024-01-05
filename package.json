@@ -2,8 +2,7 @@
   "name": "@noclaps/gallery",
   "description": "Aperturic Focus",
   "scripts": {
-    "dev": "bun ./scripts/dev.ts",
-    "build": "chmod +x ./scripts/build && ./scripts/build"
+    "build": "make"
   },
   "type": "module",
   "dependencies": {
