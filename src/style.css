@@ -1,0 +1,116 @@
+/* Generated using Realtime Colors: https://www.realtimecolors.com/ */
+/* Colors */
+:root {
+    @media (prefers-color-scheme: light) {
+        --text: oklch(17.2% 0.009 153.64);
+        --background: oklch(97.28% 0.009 161.32);
+        --primary: oklch(72.56% 0.183 151.21);
+        --on-primary: var(--text);
+        --secondary: oklch(86.11% 0.145 153.92);
+        --accent: oklch(87.51% 0.252 149.5);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --text: oklch(95.72% 0.006 154.48);
+        --background: oklch(15.45% 0.015 160.32);
+        --primary: oklch(72.56% 0.183 151.21);
+        --on-primary: var(--background);
+        --secondary: oklch(51.36% 0.146 149.68);
+        --accent: oklch(74.75% 0.24 147.32);
+    }
+}
+
+/* Root */
+:root {
+    color-scheme: dark light;
+    font-family: "Outfit", system-ui;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    padding: 1rem;
+    gap: 1rem;
+    margin: 0;
+
+    @media (max-width: 768px) {
+        width: min(64rem, 88dvw);
+        grid-template-columns: unset;
+        grid-template-rows: auto 1fr;
+        padding: 1rem 0;
+        margin: auto;
+    }
+}
+
+/* Sidebar */
+p {
+    font-size: 1.5rem;
+}
+
+h1 {
+    font-size: min(3rem, 10vmin);
+    color: var(--accent);
+    margin-top: 0.5rem;
+    font-family: "Plus Jakarta Sans", system-ui;
+}
+
+aside {
+    position: sticky;
+    top: 1.5rem;
+    height: fit-content;
+
+    @media (max-width: 768px) {
+        top: -10.5rem;
+        background-color: var(--background);
+    }
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: min-content;
+
+    @media (max-width: 786px) {
+        flex-direction: row;
+        padding: 1rem 0;
+    }
+}
+
+a {
+    color: var(--text);
+    font-weight: bold;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.25s;
+
+    &:hover {
+        background-color: var(--primary);
+        color: var(--on-primary);
+    }
+}
+
+/* Gallery */
+section {
+    columns: 24rem auto;
+    gap: 0.5rem;
+}
+
+img {
+    width: 100%;
+    border-radius: 0.5rem;
+    height: auto;
+    margin: 0.25rem 0;
+}
+
+h2 {
+    scroll-margin-top: 1rem;
+
+    @media (max-width: 768px) {
+        scroll-margin-top: 4rem;
+    }
+}
