@@ -13,20 +13,20 @@ const html = rewriter.on("section", {
             const hash = Bun.hash(await Bun.file(`./src/assets/${ year }/${ image }`).arrayBuffer());
             const filename = `${ hash }.avif`;
 
-            if (!await Bun.file(`./node_modules/.astro/${ filename }`).exists()) {
+            if (!await Bun.file(`./node_modules/_images/${ filename }`).exists()) {
                 console.log("Optimising image:", image);
                 await sharp(`./src/assets/${ year }/${ image }`).avif().toBuffer((err, buffer) => {
                     if (err) {
                         console.error(err);
                     }
 
-                    Bun.write(`./node_modules/.astro/${ filename }`, buffer);
+                    Bun.write(`./node_modules/_images/${ filename }`, buffer);
                 }).metadata().then((info) => {
                     element.append(`<img src="/_images/${ filename }" width="${ info.width }" height="${ info.height }" loading="lazy" decoding="async">`, { html: true });
                 });
             } else {
                 console.log("Skipped image:", image);
-                const info = await sharp(`./node_modules/.astro/${ filename }`).metadata();
+                const info = await sharp(`./node_modules/_images/${ filename }`).metadata();
                 element.append(`<img src="/_images/${ filename }" width="${ info.width }" height="${ info.height }" loading="lazy" decoding="async">`, { html: true });
             }
 
