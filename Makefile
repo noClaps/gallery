@@ -1,7 +1,4 @@
-all: upgrade-bun prepare-directories copy-static-files build-css build-html
-
-upgrade-bun:
-	@bun upgrade
+all: prepare-directories copy-static-files build-css build-html
 
 prepare-directories:
 	@mkdir -p ./dist
