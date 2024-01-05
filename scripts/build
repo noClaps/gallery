@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Update bun
+bun upgrade
+
 mkdir ./dist/
 
 # Copy favicon
