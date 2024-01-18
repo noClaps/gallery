@@ -1,4 +1,4 @@
-all: prepare-directories copy-static-files build-css build-html
+all: prepare-directories copy-static-files build-html
 
 prepare-directories:
 	@mkdir -p ./dist
@@ -9,12 +9,8 @@ build-html:
 	@cp -r ./node_modules/_images/ ./dist/_images/
 	@echo "Done!"
 
-build-css:
-	@echo "Building CSS"
-	@bun run ./scripts/build-css.ts
-	@echo "Done!"
-
 copy-static-files:
 	@echo "Copying static files"
+	@cp ./src/style.css ./dist/style.css
 	@cp ./src/favicon.ico ./dist/favicon.ico
 	@echo "Done!"

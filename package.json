@@ -7,8 +7,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@types/bun": "latest",
-    "lightningcss": "^1.22.1",
-    "sharp": "^0.33.1"
+    "@types/bun": "^1.0.2",
+    "sharp": "^0.33.2"
   }
 }
