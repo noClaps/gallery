@@ -19,11 +19,9 @@ A website to showcase some cool photos I've taken.
     ```sh
     bun run build
     ```
-    
+
     This will build the site and place it in `dist/`.
 
 ## Licenses
-
-All of the code in this repository is under the [0BSD license](./LICENSE), unless specified otherwise.
 
 All of the photos in this repository are licensed under the [CC0-1.0 license](./src/assets/LICENSE).
