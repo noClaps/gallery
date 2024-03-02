@@ -1,7 +1,7 @@
 import sharp from "sharp";
 
 // Build HTML
-const glob = new Bun.Glob("*.{jpg,jpeg}");
+const glob = new Bun.Glob("*.{jpg,jpeg,png}");
 
 const rewriter = new HTMLRewriter();
 const html = rewriter.on("section", {
