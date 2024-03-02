@@ -6,7 +6,7 @@ prepare-directories:
 build-html:
 	@echo "Building HTML and images"
 	@bun run ./scripts/build-html.ts
-	@cp -r ./node_modules/_images/ ./dist/_images/
+	@cp -r ./src/assets ./dist/
 	@echo "Done!"
 
 copy-static-files:
