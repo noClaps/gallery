@@ -5,17 +5,20 @@ A website to showcase some cool photos I've taken.
 ## Build instructions
 
 1.  Clone the repository.
+
     ```sh
     git clone https://github.com/noClaps/gallery.git
     cd gallery
     ```
 
 2.  Install dependencies.
+
     ```sh
     bun install
     ```
 
-3.  Ensure you have the `make` command installed, and build the site.
+3.  Build the site.
+
     ```sh
     bun run build
     ```

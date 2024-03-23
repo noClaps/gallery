@@ -1,4 +1,9 @@
+import { $ } from "bun";
 import sharp from "sharp";
+
+await $`mkdir -p dist`;
+await $`cp src/style.css dist`;
+await $`cp src/favicon.ico dist`;
 
 // Build HTML
 const glob = new Bun.Glob("*.{jpg,jpeg,png}");
@@ -17,7 +22,7 @@ const html = rewriter.on("section", {
       );
       const filename = `${hash}.avif`;
 
-      if (!(await Bun.file(`./node_modules/_images/${filename}`).exists())) {
+      if (!(await Bun.file(`./dist/_images/${filename}`).exists())) {
         console.log("Optimising image:", image);
         await sharp(`./src/assets/${year}/${image}`)
           .avif()
@@ -26,7 +31,7 @@ const html = rewriter.on("section", {
               console.error(err);
             }
 
-            Bun.write(`./node_modules/_images/${filename}`, buffer);
+            Bun.write(`./dist/_images/${filename}`, buffer);
           })
           .metadata()
           .then((info) => {
@@ -37,9 +42,7 @@ const html = rewriter.on("section", {
           });
       } else {
         console.log("Skipped image:", image);
-        const info = await sharp(
-          `./node_modules/_images/${filename}`,
-        ).metadata();
+        const info = await sharp(`./dist/_images/${filename}`).metadata();
         element.append(
           `<img src="/_images/${filename}" width="${info.width}" height="${info.height}" loading="lazy" decoding="async">`,
           { html: true },
