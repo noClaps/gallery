@@ -1,0 +1,3 @@
+[phases.setup]
+nixpkgsArchive = "d05592ea7e9656648093dfe0e817819486bd5054"
+nixPkgs = ["bun"]
