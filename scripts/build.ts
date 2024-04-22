@@ -22,7 +22,9 @@ const html = rewriter.on("section", {
       );
       const filename = `${hash}.avif`;
 
-      if (!(await Bun.file(`./dist/_images/${filename}`).exists())) {
+      if (
+        !(await Bun.file(`./node_modules/.cache/_images/${filename}`).exists())
+      ) {
         console.log("Optimising image:", image);
         await sharp(`./src/assets/${year}/${image}`)
           .avif()
@@ -31,7 +33,7 @@ const html = rewriter.on("section", {
               console.error(err);
             }
 
-            Bun.write(`./dist/_images/${filename}`, buffer);
+            Bun.write(`./node_modules/.cache/_images/${filename}`, buffer);
           })
           .metadata()
           .then((info) => {
@@ -42,7 +44,9 @@ const html = rewriter.on("section", {
           });
       } else {
         console.log("Skipped image:", image);
-        const info = await sharp(`./dist/_images/${filename}`).metadata();
+        const info = await sharp(
+          `./node_modules/.cache/_images/${filename}`,
+        ).metadata();
         element.append(
           `<img src="/_images/${filename}" width="${info.width}" height="${info.height}" loading="lazy" decoding="async">`,
           { html: true },
@@ -56,3 +60,5 @@ Bun.write(
   "./dist/index.html",
   html.transform(new Response(await Bun.file("./src/index.html").text())),
 );
+
+await $`cp -r node_modules/.cache/_images dist/_images`;
