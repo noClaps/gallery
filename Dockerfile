@@ -1,6 +1,7 @@
 FROM oven/bun
 
 ARG RAILWAY_SERVICE_ID
+ENV RAILWAY_SERVICE_ID=$RAILWAY_SERVICE_ID
 
 COPY package.json bun.lockb ./
 RUN bun install
