@@ -4,7 +4,7 @@ import { watch } from "fs";
 async function serve() {
   await $`bun scripts/build.ts`;
 
-  Bun.serve({
+  return Bun.serve({
     fetch(req) {
       const path = new URL(req.url).pathname;
 
@@ -15,8 +15,9 @@ async function serve() {
   });
 }
 
-serve();
-console.log("Server running on http://localhost:3000");
+serve().then((server) => {
+  console.log(`Server running on ${server.url}`);
+});
 
 watch(
   `${import.meta.dir}/../src`,
