@@ -8,7 +8,9 @@
   },
   "type": "module",
   "dependencies": {
-    "@types/bun": "^1.1.0",
-    "sharp": "^0.33.3"
+    "sharp": "^0.33.4"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.6"
   }
 }
