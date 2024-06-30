@@ -21,8 +21,9 @@ const html = new HTMLRewriter().on("img", {
       console.log("Skipped image:", image);
     } else {
       console.log("Optimising image:", image);
-      const imageFile = await sharp(image).avif().toBuffer();
-      Bun.write(`node_modules/.cache/_images/${filename}`, imageFile);
+      await sharp(image)
+        .avif()
+        .toFile(`node_modules/.cache/_images/${filename}`);
     }
 
     await sharp(image)
