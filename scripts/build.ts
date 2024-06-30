@@ -10,6 +10,8 @@ await $`mkdir -p node_modules/.cache/_images`;
 const html = new HTMLRewriter().on("img", {
   async element(el) {
     el.setAttribute("title", el.getAttribute("alt") ?? "");
+    el.setAttribute("loading", "lazy");
+    el.setAttribute("decoding", "async");
 
     const image = el.getAttribute("src") ?? "";
     const filename = `${Bun.hash(await Bun.file(image).arrayBuffer())}.avif`;
@@ -37,4 +39,4 @@ Bun.write(
   await html.transform(new Response(Bun.file("src/index.html"))).text(),
 );
 
-await $`cp -r node_modules/.cache/_images dist/_images`;
+await $`cp -r node_modules/.cache/_images dist/`;
