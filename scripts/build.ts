@@ -21,9 +21,10 @@ const html = new HTMLRewriter().on("img", {
       console.log("Skipped image:", image);
     } else {
       console.log("Optimising image:", image);
-      await sharp(image)
-        .avif()
-        .toFile(`node_modules/.cache/_images/${filename}`);
+      await $`tools/target/release/sharp-rs -i ${image} -o test/${filename}`;
+      // await sharp(image)
+      //   .avif()
+      //   .toFile(`node_modules/.cache/_images/${filename}`);
     }
 
     await sharp(image)

@@ -1,0 +1,11 @@
+[package]
+name = "sharp-rs"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.8", features = ["derive"] }
+ravif = "0.11.7"
+rgb = "0.8.40"
+zune-jpeg = "0.4.11"
+zune-png = "0.4.10"
