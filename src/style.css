@@ -11,7 +11,7 @@
 
 /* Root */
 :root {
-    color-scheme: dark light;
+    color-scheme: dark;
     font-family: "Outfit", system-ui;
     scroll-behavior: smooth;
 }
