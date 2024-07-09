@@ -1,15 +1,20 @@
 import { $ } from "bun";
-import { watch } from "fs";
+import { watch } from "node:fs";
 
 async function serve() {
   await $`bun scripts/build.ts`;
 
   return Bun.serve({
-    fetch(req) {
+    async fetch(req) {
       const path = new URL(req.url).pathname;
 
       if (path === "/") return new Response(Bun.file("dist/index.html"));
-      return new Response(Bun.file(`dist${path}`));
+
+      if (await Bun.file(`dist${path}`).exists()) {
+        return new Response(Bun.file(`dist${path}`));
+      }
+
+      return new Response("Not found", { status: 404 });
     },
     reusePort: true,
   });
