@@ -3,8 +3,7 @@
   "description": "Aperturic Focus",
   "scripts": {
     "build": "bun scripts/build.ts",
-    "dev": "bun scripts/dev.ts",
-    "start": "bun scripts/start.ts"
+    "dev": "bun scripts/dev.ts"
   },
   "type": "module",
   "dependencies": {
