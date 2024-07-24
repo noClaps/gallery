@@ -1,34 +1,33 @@
-import { $ } from "bun";
+import { $, type Serve } from "bun";
 import { watch } from "node:fs";
 
-async function serve() {
-  await $`bun scripts/build.ts`;
+const serverOptions: Serve = {
+  async fetch(req) {
+    const path = new URL(req.url).pathname;
 
-  return Bun.serve({
-    async fetch(req) {
-      const path = new URL(req.url).pathname;
+    if (path === "/") return new Response(Bun.file("dist/index.html"));
 
-      if (path === "/") return new Response(Bun.file("dist/index.html"));
+    if (await Bun.file(`dist${path}`).exists()) {
+      return new Response(Bun.file(`dist${path}`));
+    }
 
-      if (await Bun.file(`dist${path}`).exists()) {
-        return new Response(Bun.file(`dist${path}`));
-      }
+    return new Response("Not found", { status: 404 });
+  },
+};
 
-      return new Response("Not found", { status: 404 });
-    },
-    reusePort: true,
-  });
-}
+await $`bun scripts/build.ts`;
+const server = Bun.serve(serverOptions);
 
-serve().then((server) => {
-  console.log(`Server running on ${server.url}`);
-});
+console.log(`Server running on ${server.url}`);
 
 watch(
   `${import.meta.dir}/../src`,
   { recursive: true },
   async (event, filename) => {
     console.log(`Detected ${event} in ${filename}`);
-    serve();
+    await $`bun scripts/build.ts`.then(() => {
+      server.reload(serverOptions);
+      console.log("Reloaded.");
+    });
   },
 );
