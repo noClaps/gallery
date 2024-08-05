@@ -1,21 +1,31 @@
-import { $, type Serve } from "bun";
+import { type Serve } from "bun";
 import { watch } from "node:fs";
 
 const serverOptions: Serve = {
   async fetch(req) {
     const path = new URL(req.url).pathname;
 
-    if (path === "/") return new Response(Bun.file("dist/index.html"));
+    switch (path) {
+      case "/":
+        return new Response(Bun.file("src/index.html"));
 
-    if (await Bun.file(`dist${path}`).exists()) {
-      return new Response(Bun.file(`dist${path}`));
+      case "/style.css":
+        return new Response(Bun.file("src/style.css"));
+
+      case "/favicon.ico":
+        return new Response(Bun.file("src/favicon.ico"));
+
+      default:
+        const file = Bun.file(path.slice(1));
+        if (await file.exists()) {
+          return new Response(file);
+        }
+
+        return new Response("Not found", { status: 404 });
     }
-
-    return new Response("Not found", { status: 404 });
   },
 };
 
-await $`bun scripts/build.ts`;
 const server = Bun.serve(serverOptions);
 
 console.log(`Server running on ${server.url}`);
@@ -25,9 +35,7 @@ watch(
   { recursive: true },
   async (event, filename) => {
     console.log(`Detected ${event} in ${filename}`);
-    await $`bun scripts/build.ts`.then(() => {
-      server.reload(serverOptions);
-      console.log("Reloaded.");
-    });
+    server.reload(serverOptions);
+    console.log("Reloaded.");
   },
 );

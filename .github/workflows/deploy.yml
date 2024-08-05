@@ -18,15 +18,7 @@ jobs:
         with:
           bun-version: latest
       - run: bun install --frozen-lockfile
-      - uses: actions/cache/restore@v3
-        with:
-          key: images-cache
-          path: ./node_modules/.cache/
       - run: bun run build
-      - uses: actions/cache/save@v3
-        with:
-          key: images-cache
-          path: ./node_modules/.cache/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
