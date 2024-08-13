@@ -1,7 +1,7 @@
 import { $ } from "bun";
 import sharp from "sharp";
 
-await $`mkdir -p dist`;
+await $`mkdir -p dist/_images`;
 await $`cp src/style.css dist`;
 await $`cp src/favicon.ico dist`;
 
@@ -9,25 +9,25 @@ await $`cp src/favicon.ico dist`;
 const html = new HTMLRewriter()
   .on("img", {
     async element(el) {
-      el.setAttribute("title", el.getAttribute("alt") ?? "");
-      el.setAttribute("loading", "lazy");
-      el.setAttribute("decoding", "async");
-
+      const alt = el.getAttribute("alt") ?? "";
       const image = el.getAttribute("src") ?? "";
+
       const imgHash = Bun.hash(await Bun.file(image).arrayBuffer());
-      const fileExt = Bun.file(image).type.replaceAll("image/", "");
-      const filename = `${imgHash}.${fileExt}`;
-      el.setAttribute("src", `/_images/${filename}`);
+      const filename = `${imgHash}.webp`;
 
       console.log("Optimising image:", image);
-      sharp(image).toBuffer((error, buffer, info) => {
-        if (error) throw error;
+      const { height, width } = await sharp(image)
+        .webp()
+        .toFile(`dist/_images/${filename}`);
 
-        Bun.write(`dist/_images/${filename}`, buffer);
+      const fileExt = Bun.file(image).type.replace("image/", "");
+      const originalFilename = `${imgHash}.${fileExt}`;
+      Bun.write(`dist/_images/${originalFilename}`, Bun.file(image));
 
-        info.height && el.setAttribute("height", `${info.height}`);
-        info.width && el.setAttribute("width", `${info.width}`);
-      });
+      el.replace(
+        `<a href="/_images/${originalFilename}" target="_blank"><img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}"></a>`,
+        { html: true },
+      );
     },
   })
   .transform(await Bun.file("src/index.html").text());
