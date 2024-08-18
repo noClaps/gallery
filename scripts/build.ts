@@ -13,12 +13,15 @@ const html = new HTMLRewriter()
       const image = el.getAttribute("src") ?? "";
 
       const imgHash = Bun.hash(await Bun.file(image).arrayBuffer());
-      const filename = `${imgHash}.webp`;
+      const filename = `${imgHash}.avif`;
 
-      console.log("Optimising image:", image);
-      const { height, width } = await sharp(image)
-        .webp()
-        .toFile(`dist/_images/${filename}`);
+      if (!(await Bun.file(`dist/_images/${filename}`).exists())) {
+        console.log("Optimising image:", image);
+        await $`avifenc --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim -j all ${image} dist/_images/${filename}`;
+      } else {
+        console.log("Skipped image:", image);
+      }
+      const { height, width } = await sharp(image).metadata();
 
       const fileExt = Bun.file(image).type.replace("image/", "");
       const originalFilename = `${imgHash}.${fileExt}`;
