@@ -11,7 +11,7 @@ cache:
 
 deploy:
   before_script:
-    - brew install cloudflare-wrangler2 oven-sh/bun/bun
+    - brew install ninja cmake cloudflare-wrangler2 oven-sh/bun/bun
   script:
     - bun install --frozen-lockfile
     - bun run build
