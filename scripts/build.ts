@@ -1,5 +1,5 @@
 import { $ } from "bun";
-import sharp from "sharp";
+import imageSize from "image-size";
 
 await $`mkdir -p dist/_images`;
 await $`cp src/style.css dist`;
@@ -21,7 +21,9 @@ const html = new HTMLRewriter()
       } else {
         console.log("Skipped image:", image);
       }
-      const { height, width } = await sharp(image).metadata();
+      const { height, width } = imageSize(
+        new Uint8Array(await Bun.file(image).arrayBuffer()),
+      );
 
       const fileExt = Bun.file(image).type.replace("image/", "");
       const originalFilename = `${imgHash}.${fileExt}`;
