@@ -1,4 +1,4 @@
-image: homebrew/brew
+image: oven/bun
 
 cache:
   paths:
@@ -8,8 +8,8 @@ cache:
 
 deploy:
   before_script:
-    - brew install cloudflare-wrangler2 oven-sh/bun/bun
-  script:
+    - git submodule update
     - bun install --frozen-lockfile
+  script:
     - bun run build
-    - wrangler pages deploy dist --project-name aperturic-focus
+    - bunx wrangler pages deploy dist --project-name aperturic-focus
