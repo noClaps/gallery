@@ -1,0 +1,4 @@
+[submodule "libavif"]
+	path = libavif
+	url = https://github.com/AOMediaCodec/libavif
+	branch = v1.1.1

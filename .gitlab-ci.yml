@@ -4,10 +4,11 @@ cache:
   paths:
     - node_modules/
     - dist/
+    - avifenc-v1.1.1
 
 deploy:
   before_script:
-    - brew install libavif cloudflare-wrangler2 oven-sh/bun/bun
+    - brew install cloudflare-wrangler2 oven-sh/bun/bun
   script:
     - bun install --frozen-lockfile
     - bun run build
