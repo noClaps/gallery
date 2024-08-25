@@ -1,17 +1,13 @@
 image: homebrew/brew
 
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
 cache:
   paths:
     - node_modules/
     - dist/
-    - avifenc-v1.1.1
 
 deploy:
   before_script:
-    - brew install ninja cmake cloudflare-wrangler2 oven-sh/bun/bun
+    - brew install libavif cloudflare-wrangler2 oven-sh/bun/bun
   script:
     - bun install --frozen-lockfile
     - bun run build

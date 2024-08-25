@@ -1,12 +1,6 @@
 import { $ } from "bun";
 import imageSize from "image-size";
 
-const AVIFENC_VERSION = "v1.1.1";
-
-if (!(await Bun.file(`avifenc-${AVIFENC_VERSION}`).exists())) {
-  await $`./scripts/build-avifenc`;
-}
-
 await $`mkdir -p dist/_images`;
 await $`cp src/style.css dist`;
 await $`cp src/favicon.ico dist`;
@@ -23,7 +17,7 @@ const html = new HTMLRewriter()
 
       if (!(await Bun.file(`dist/_images/${filename}`).exists())) {
         console.log("Optimising image:", image);
-        await $`./avifenc-${AVIFENC_VERSION} --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim -j all ${image} dist/_images/${filename}`;
+        await $`avifenc --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim -j all ${image} dist/_images/${filename}`;
       } else {
         console.log("Skipped image:", image);
       }
