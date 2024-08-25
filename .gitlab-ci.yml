@@ -1,5 +1,8 @@
 image: homebrew/brew
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 cache:
   paths:
     - node_modules/
@@ -8,9 +11,8 @@ cache:
 
 deploy:
   before_script:
-    - brew install git cloudflare-wrangler2 oven-sh/bun/bun
+    - brew install cloudflare-wrangler2 oven-sh/bun/bun
   script:
-    - git submodule update
     - bun install --frozen-lockfile
     - bun run build
     - wrangler pages deploy dist --project-name aperturic-focus
