@@ -1,5 +1,5 @@
 import { $ } from "bun";
-import imageSize from "image-size";
+import sharp from "sharp";
 
 await $`mkdir -p dist/_images`;
 await $`cp src/style.css dist`;
@@ -15,22 +15,29 @@ const html = new HTMLRewriter()
       const imgHash = Bun.hash(await Bun.file(image).arrayBuffer());
       const filename = `${imgHash}.avif`;
 
+      const { height, width } = await sharp(
+        new Uint8Array(await Bun.file(image).arrayBuffer()),
+      ).metadata();
+      if (!width || !height) {
+        throw new Error(`Image has no width or height: ${image}`);
+      }
+
       if (!(await Bun.file(`dist/_images/${filename}`).exists())) {
         console.log("Optimising image:", image);
-        await $`avifenc --min 0 --max 63 -a end-usage=q -a cq-level=18 -a tune=ssim -j all ${image} dist/_images/${filename}`;
+        const buf = await sharp(image).resize(1000).avif().toBuffer();
+        Bun.write(`dist/_images/${filename}`, buf);
       } else {
         console.log("Skipped image:", image);
       }
-      const { height, width } = imageSize(
-        new Uint8Array(await Bun.file(image).arrayBuffer()),
-      );
 
       const fileExt = Bun.file(image).type.replace("image/", "");
       const originalFilename = `${imgHash}.${fileExt}`;
       Bun.write(`dist/_images/${originalFilename}`, Bun.file(image));
 
       el.replace(
-        `<a href="/_images/${originalFilename}" target="_blank"><img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height ?? ""}" width="${width ?? ""}"></a>`,
+        `<a href="/_images/${originalFilename}" target="_blank">
+        <img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}">
+        </a>`,
         { html: true },
       );
     },
