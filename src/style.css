@@ -1,3 +1,26 @@
+/* Fonts */
+/* Plus Jakarta Sans */
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src:
+        url("https://cdn.fontshare.com/wf/U2HFRBAHB5SL53RHFEF22BIJZSJRHR2Y/LFPV5QZIFT7V5OMDNHDQPJYOQAHFUE4W/CLVUG765RK3TA3ESG2NBCJJGWFQVIBTA.woff2")
+            format("woff2")
+    font-weight: 200 800;
+    font-display: swap;
+    font-style: normal;
+}
+
+/* Outfit */
+@font-face {
+    font-family: "Outfit";
+    src:
+        url("https://cdn.fontshare.com/wf/5CUYQY5BTX2W3ZPVRCCCLWNDFRFO4X2Q/4ZFWCKR7SZIG5QK3WRRMPJIO3T4V7P3P/MSBFVUKVELIKYOCZRGPPNF2NPYHTJ4RR.woff2")
+            format("woff2")
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
 /* Generated using Realtime Colors: https://www.realtimecolors.com/ */
 /* Colors */
 :root {
