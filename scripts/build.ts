@@ -14,7 +14,7 @@ rw.on(`link[rel="stylesheet"]`, {
     if (!href) throw new Error("Style link not found");
 
     const styles = await Bun.file(`src${href}`).text();
-    el.replace(`<style>${styles.replaceAll(/[\n\s]/g, "")}</style>`, {
+    el.replace(`<style>${styles}</style>`, {
       html: true,
     });
   },
@@ -55,9 +55,7 @@ rw.on("img", {
     }
 
     el.replace(
-      `<a href="/_images/${originalFilename}" target="_blank">
-        <img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}">
-        </a>`,
+      `<a href="/_images/${originalFilename}" target="_blank"><img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}"></a>`,
       { html: true },
     );
   },
