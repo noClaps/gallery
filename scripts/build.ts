@@ -3,7 +3,6 @@ import sharp from "sharp";
 
 await $`mkdir -p dist/_images`;
 await $`cp src/favicon.ico dist`;
-await $`cp src/robots.txt dist`;
 
 const rw = new HTMLRewriter();
 
