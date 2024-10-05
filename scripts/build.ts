@@ -2,22 +2,9 @@ import { $ } from "bun";
 import sharp from "sharp";
 
 await $`mkdir -p dist/_images`;
-await $`cp src/favicon.ico dist`;
+await $`cp src/favicon.ico src/style.css dist`;
 
 const rw = new HTMLRewriter();
-
-// Inline styles
-rw.on(`link[rel="stylesheet"]`, {
-	async element(el) {
-		const href = el.getAttribute("href");
-		if (!href) throw new Error("Style link not found");
-
-		const styles = await Bun.file(`src${href}`).text();
-		el.replace(`<style>${styles}</style>`, {
-			html: true,
-		});
-	},
-});
 
 // Optimise images
 rw.on("img", {
