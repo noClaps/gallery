@@ -37,8 +37,7 @@ rw.on("img", {
 
     if (!(await Bun.file(`dist/_images/${filename}`).exists())) {
       console.log("Optimising image:", image);
-      const buf = await sharp(image).resize(1000).avif().toBuffer();
-      Bun.write(`dist/_images/${filename}`, buf);
+      sharp(image).resize(1000).avif().toFile(`dist/_images/${filename}`);
     } else {
       console.log("Skipped optimising image:", image);
     }
@@ -60,10 +59,6 @@ rw.on("img", {
   },
 });
 
-let html = rw.transform(await Bun.file("src/index.html").text());
-html = html
-  .split("\n")
-  .map((l) => l.trim())
-  .join(" ")
-  .replaceAll("> <", "><");
-Bun.write("dist/index.html", html);
+const html = rw.transform(await Bun.file("src/index.html").text());
+const miniHtml = html.replaceAll(/>\s+</g, "><").replaceAll(/\s+/g, " ");
+Bun.write("dist/index.html", miniHtml);
