@@ -25,7 +25,7 @@ rw.on("img", {
     const alt = el.getAttribute("alt") ?? "";
     const image = `src/${el.getAttribute("src")}`;
 
-    const imgHash = Bun.hash(await Bun.file(image).arrayBuffer());
+    const imgHash = Bun.hash(await Bun.file(image).arrayBuffer()).toString(36);
     const filename = `${imgHash}.avif`;
 
     const { height, width } = await sharp(
