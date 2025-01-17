@@ -1,6 +1,6 @@
 import sharp from "sharp";
 
-Bun.write("src/favicon.ico", Bun.file("src/favicon.ico"));
+Bun.write("dist/favicon.ico", Bun.file("src/favicon.ico"));
 
 const rw = new HTMLRewriter();
 
