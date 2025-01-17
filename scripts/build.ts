@@ -23,7 +23,7 @@ rw.on("link[rel=stylesheet]", {
 rw.on("img", {
   async element(el) {
     const alt = el.getAttribute("alt") ?? "";
-    const image = el.getAttribute("src") ?? "";
+    const image = `src/${el.getAttribute("src")}`;
 
     const imgHash = Bun.hash(await Bun.file(image).arrayBuffer());
     const filename = `${imgHash}.avif`;
