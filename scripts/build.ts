@@ -12,7 +12,6 @@ rw.on("link[rel=stylesheet]", {
     const styles = await Bun.build({
       entrypoints: [`src/${href}`],
       minify: true,
-      experimentalCss: true,
     }).then((bo) => bo.outputs[0].text());
 
     el.replace(`<style>${styles.trim()}</style>`, { html: true });
