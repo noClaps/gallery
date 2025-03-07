@@ -1,10 +1,6 @@
 {
   "name": "@noclaps/gallery",
   "description": "Aperturic Focus",
-  "scripts": {
-    "build": "bun scripts/build.ts",
-    "dev": "bun src/index.html"
-  },
   "type": "module",
   "dependencies": {
     "sharp": "^0.33.5"
