@@ -1,6 +1,2 @@
 [tools]
-bun = "1.2.4"
-
-[tasks]
-build = "bun scripts/build.ts"
-dev = "bun src/index.html"
+bun = "latest"
