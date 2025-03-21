@@ -7,7 +7,7 @@ A website to showcase some cool photos I've taken.
 1.  Clone the repository.
 
     ```sh
-    git clone https://gitlab.com/noClaps/gallery.git
+    git clone https://github.com/noClaps/gallery.git
     cd gallery
     ```
 
