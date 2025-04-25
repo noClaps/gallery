@@ -5,6 +5,7 @@
   "scripts": {
     "build": "bun scripts/build.ts",
     "dev": "bun src/index.html"
+    "font": "curl 'https://rsms.me/inter/font-files/InterVariable.woff2' -o src/InterVariable.woff2"
   },
   "dependencies": {
     "sharp": "^0.33.5"
