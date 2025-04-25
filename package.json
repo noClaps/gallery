@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "bun scripts/build.ts",
-    "dev": "bun src/index.html"
+    "dev": "bunx vite src/",
     "font": "curl 'https://rsms.me/inter/font-files/InterVariable.woff2' -o src/InterVariable.woff2"
   },
   "dependencies": {
