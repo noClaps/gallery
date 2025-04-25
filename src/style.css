@@ -112,3 +112,9 @@ h2 {
         scroll-margin-top: 4rem;
     }
 }
+
+/* Footer */
+footer {
+    text-align: center;
+    grid-column: 1/2;
+}
