@@ -1,7 +1,5 @@
 import sharp from "sharp";
 
-Bun.write("dist/favicon.ico", Bun.file("src/favicon.ico"));
-
 const rw = new HTMLRewriter();
 
 rw.on("link[rel=stylesheet]", {
@@ -9,12 +7,14 @@ rw.on("link[rel=stylesheet]", {
     const href = el.getAttribute("href");
     if (!href) return;
 
-    const styles = await Bun.build({
+    const [styles, font] = await Bun.build({
       entrypoints: [`src/${href}`],
       minify: true,
-    }).then((bo) => bo.outputs[0].text());
-
-    el.replace(`<style>${styles.trim()}</style>`, { html: true });
+    }).then((bo) => bo.outputs);
+    el.replace(`<style>${await styles.text()}</style>`, {
+      html: true,
+    });
+    Bun.write(`dist/${font.path}`, await font.arrayBuffer());
   },
 });
 
