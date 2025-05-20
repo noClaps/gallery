@@ -11,7 +11,7 @@
     "sharp": "^0.34.1"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.10",
+    "@types/bun": "^1.2.13",
     "typescript": "^5.8.3"
   }
 }
