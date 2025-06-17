@@ -4,10 +4,10 @@
     "": {
       "name": "@noclaps/gallery",
       "dependencies": {
-        "sharp": "^0.34.1",
+        "sharp": "^0.34.2",
       },
       "devDependencies": {
-        "@types/bun": "^1.2.13",
+        "@types/bun": "^1.2.16",
         "typescript": "^5.8.3",
       },
     },
