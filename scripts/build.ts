@@ -1,5 +1,7 @@
 import sharp from "sharp";
 
+await Bun.$`mkdir -p dist/_images/`;
+
 const rw = new HTMLRewriter();
 
 rw.on("link[rel=stylesheet]", {
@@ -43,18 +45,8 @@ rw.on("img", {
       console.log("Skipped optimising image:", image);
     }
 
-    const fileExt = Bun.file(image).type.replace("image/", "");
-    const originalFilename = `${imgHash}.${fileExt}`;
-
-    if (!(await Bun.file(`dist/_images/${originalFilename}`).exists())) {
-      console.log("Copying original image:", image);
-      Bun.write(`dist/_images/${originalFilename}`, Bun.file(image));
-    } else {
-      console.log("Skipped copying image:", image);
-    }
-
     el.replace(
-      `<a href="/_images/${originalFilename}" target="_blank"><img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}"></a>`,
+      `<img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}">`,
       { html: true },
     );
   },
