@@ -73,8 +73,7 @@ nav {
     width: min-content;
 
     @media (max-width: 786px) {
-        flex-direction: row;
-        padding: 1rem 0;
+        display: none;
     }
 }
 
