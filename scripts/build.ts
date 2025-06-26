@@ -1,6 +1,6 @@
 import sharp from "sharp";
 
-await Bun.$`mkdir -p dist/_images/`;
+await Bun.$`mkdir -p .cache`;
 
 const rw = new HTMLRewriter();
 
@@ -38,12 +38,13 @@ rw.on("img", {
       throw new Error(`Image has no width or height: ${image}`);
     }
 
-    if (!(await Bun.file(`dist/_images/${filename}`).exists())) {
+    if (!(await Bun.file(`.cache/${filename}`).exists())) {
       console.log("Optimising image:", image);
-      sharp(image).resize(1000).avif().toFile(`dist/_images/${filename}`);
+      await sharp(image).resize(1000).avif().toFile(`.cache/${filename}`);
     } else {
       console.log("Skipped optimising image:", image);
     }
+    Bun.write(`dist/_images/${filename}`, Bun.file(`.cache/${filename}`));
 
     el.replace(
       `<img alt="${alt}" title="${alt}" loading="lazy" decoding="async" src="/_images/${filename}" height="${height}" width="${width}">`,
