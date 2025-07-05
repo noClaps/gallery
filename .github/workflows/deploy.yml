@@ -8,10 +8,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
-      - uses: actions/cache@v4
-        with:
-          path: .cache
-          key: images
+      - run: sudo apt install -y libavif-dev
+      # - uses: actions/cache@v4
+      #   with:
+      #     path: .cache
+      #     key: images
       - run: go run .
       - uses: actions/upload-pages-artifact@v3
         with:
