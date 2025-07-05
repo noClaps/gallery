@@ -1,7 +1,7 @@
 package main
 
 import (
-	"crypto/sha1"
+	"crypto/md5"
 	"encoding/hex"
 	"image"
 	_ "image/jpeg"
@@ -66,7 +66,7 @@ func calculateFilename(path string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	hash := sha1.Sum(fileData)
+	hash := md5.Sum(fileData)
 	fileName := hex.EncodeToString(hash[:]) + ".avif"
 
 	return fileName, nil
