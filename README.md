@@ -4,6 +4,8 @@ A website to showcase some cool photos I've taken.
 
 ## Build instructions
 
+You'll need [Go](https://go.dev).
+
 1.  Clone the repository.
 
     ```sh
@@ -11,16 +13,10 @@ A website to showcase some cool photos I've taken.
     cd gallery
     ```
 
-2.  Install dependencies.
+2.  Build the site.
 
     ```sh
-    bun install
-    ```
-
-3.  Build the site.
-
-    ```sh
-    bun run build
+    go run .
     ```
 
     This will build the site and place it in `dist/`.
