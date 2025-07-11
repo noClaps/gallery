@@ -18,6 +18,7 @@ jobs:
           path: dist/
 
   deploy:
+    if: github.ref_name == 'main'
     permissions:
       pages: write
       id-token: write
