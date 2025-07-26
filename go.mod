@@ -1,6 +1,6 @@
 module github.com/noclaps/gallery
 
-go 1.24.4
+go 1.24.5
 
 require (
 	github.com/anthonynsimon/bild v0.14.0
