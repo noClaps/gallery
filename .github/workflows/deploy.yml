@@ -4,18 +4,18 @@ jobs:
   build:
     permissions:
       contents: read
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
-        with:
-          go-version-file: go.mod
       - uses: actions/cache@v4
         id: cache
         with:
           path: .cache
           key: images-v2
-      - run: brew install libavif
+      - run: |
+          sudo apt update -y
+          sudo apt install -y libavif-dev
         if: steps.cache.outputs.cache-hit != 'true'
       - run: go run .
       - uses: actions/upload-pages-artifact@v3
