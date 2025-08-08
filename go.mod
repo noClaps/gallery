@@ -5,7 +5,7 @@ go 1.24.5
 require (
 	github.com/anthonynsimon/bild v0.14.0
 	github.com/gen2brain/avif v0.4.4
-	golang.org/x/net v0.42.0
+	golang.org/x/net v0.43.0
 )
 
 require (
