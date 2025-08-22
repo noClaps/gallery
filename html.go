@@ -30,9 +30,7 @@ func parseHTML() error {
 		}
 
 		for child := range node.ChildNodes() {
-			wg.Add(1)
-			go func() {
-				defer wg.Done()
+			wg.Go(func() {
 				if child.Data == "link" && slices.ContainsFunc(child.Attr, func(attr html.Attribute) bool {
 					return attr.Key == "rel" && attr.Val == "stylesheet"
 				}) {
@@ -94,7 +92,7 @@ func parseHTML() error {
 						html.Attribute{Key: "title", Val: alt},
 					)
 				}
-			}()
+			})
 
 			for nested := range child.ChildNodes() {
 				err := processNode(nested)
