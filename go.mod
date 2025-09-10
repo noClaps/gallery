@@ -1,11 +1,11 @@
 module github.com/noclaps/gallery
 
-go 1.25.0
+go 1.25.1
 
 require (
 	github.com/anthonynsimon/bild v0.14.0
 	github.com/gen2brain/avif v0.4.4
-	golang.org/x/net v0.43.0
+	golang.org/x/net v0.44.0
 )
 
 require (
