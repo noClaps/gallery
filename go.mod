@@ -9,6 +9,6 @@ require (
 )
 
 require (
-	github.com/ebitengine/purego v0.8.4 // indirect
+	github.com/ebitengine/purego v0.9.0 // indirect
 	github.com/tetratelabs/wazero v1.9.0 // indirect
 )
