@@ -4,7 +4,7 @@ A website to showcase some cool photos I've taken.
 
 ## Build instructions
 
-You'll need [Go](https://go.dev).
+You'll need [Bun](https://bun.com).
 
 1.  Clone the repository.
 
@@ -16,7 +16,7 @@ You'll need [Go](https://go.dev).
 2.  Build the site.
 
     ```sh
-    go run .
+    bun build.ts
     ```
 
     This will build the site and place it in `dist/`.
