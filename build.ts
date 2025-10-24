@@ -51,5 +51,3 @@ const outputHtml = new HTMLRewriter()
   .transform(await html);
 
 Bun.write("dist/index.html", outputHtml);
-
-export {};
