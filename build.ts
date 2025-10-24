@@ -9,8 +9,14 @@ const outputHtml = new HTMLRewriter()
 
       console.log(`Embedding CSS from: ${path}`);
 
-      const css = await Bun.file(`src/${path}`).text();
-      el.replace(`<style>${css}</style>`, { html: true });
+      const css = Bun.build({
+        entrypoints: [`src/${path}`],
+        minify: true,
+      })
+        .then((bo) => bo.outputs[0])
+        .then((artifact) => artifact.text())
+        .then((css) => css.trim());
+      el.replace(`<style>${await css}</style>`, { html: true });
     },
   })
   .on("img", {
