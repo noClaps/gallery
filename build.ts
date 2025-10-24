@@ -32,13 +32,13 @@ const outputHtml = new HTMLRewriter()
 
       if (await cached.exists()) {
         const buf = cached.bytes();
-        base64 = buf.then((buf) => btoa(String.fromCharCode(...buf)));
+        base64 = buf.then((buf) => buf.toBase64());
         metadata = buf.then((buf) => sharp(buf).metadata());
       } else {
         const avif = sharp(`src/${src}`).resize(1000).avif();
         const buf = avif.toBuffer();
         Bun.write(`.cache/${src}`, await buf);
-        base64 = buf.then((buf) => buf.toString("base64"));
+        base64 = buf.then((buf) => buf.toBase64());
         metadata = buf.then((buf) => sharp(buf).metadata());
       }
 
