@@ -1,53 +1,54 @@
+import { HTMLRewriter } from "htmlrewriter";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
+import { glob, writeFile } from "node:fs/promises";
 import sharp from "sharp";
 
-const html = Bun.file("src/index.html").arrayBuffer();
+const html = readFileSync("src/index.html");
+let images: Record<string, { base64: string; width: number; height: number }> =
+  {};
+for await (let entry of glob("src/assets/**/*.{jpg,jpeg,png}")) {
+  console.log(`Optimising image: ${entry}`);
+  entry = entry.replace("src/", "./");
+  if (existsSync(`.cache/${entry}`)) {
+    const buf = readFileSync(`.cache/${entry}`);
+    const base64 = buf.toString("base64");
+    const { width, height } = await sharp(buf).metadata();
+    images[entry] = { base64, width: width, height: height };
+  } else {
+    const buf = await sharp(`src/${entry}`).resize(1000).avif().toBuffer();
+    mkdirSync(`.cache/${entry.split("/").slice(0, -1).join("/")}`, {
+      recursive: true,
+    });
+    writeFile(`.cache/${entry}`, buf);
+    const base64 = buf.toString("base64");
+    const { width, height } = await sharp(buf).metadata();
+    images[entry] = { base64, width: width, height: height };
+  }
+}
 
 const outputHtml = new HTMLRewriter()
   .on("link[rel=stylesheet]", {
-    async element(el) {
+    element(el) {
       const path = el.getAttribute("href")!;
 
       console.log(`Embedding CSS from: ${path}`);
-
-      const css = Bun.build({
-        entrypoints: [`src/${path}`],
-        minify: true,
-      })
-        .then((bo) => bo.outputs[0])
-        .then((artifact) => artifact.text())
-        .then((css) => css.trim());
-      el.replace(`<style>${await css}</style>`, { html: true });
+      const css = readFileSync(`src/${path}`);
+      el.replace(`<style>${css}</style>`, { html: true });
     },
   })
   .on("img", {
-    async element(el) {
+    element(el) {
       const src = el.getAttribute("src")!;
       const alt = el.getAttribute("alt")!;
 
-      console.log(`Optimising image: ${src}`);
+      const { base64, width, height } = images[src];
 
-      let cached = Bun.file(`.cache/${src}`);
-      let base64: Promise<string>;
-      let metadata: Promise<sharp.Metadata>;
-
-      if (await cached.exists()) {
-        const buf = cached.bytes();
-        base64 = buf.then((buf) => buf.toBase64());
-        metadata = buf.then((buf) => sharp(buf).metadata());
-      } else {
-        const avif = sharp(`src/${src}`).resize(1000).avif();
-        const buf = avif.toBuffer();
-        Bun.write(`.cache/${src}`, await buf);
-        base64 = buf.then((buf) => buf.toBase64());
-        metadata = buf.then((buf) => sharp(buf).metadata());
-      }
-
-      el.setAttribute("width", `${(await metadata).width}`);
-      el.setAttribute("height", `${(await metadata).height}`);
-      el.setAttribute("src", `data:image/avif;base64,${await base64}`);
+      el.setAttribute("width", `${width}`);
+      el.setAttribute("height", `${height}`);
+      el.setAttribute("src", `data:image/avif;base64,${base64}`);
       el.setAttribute("title", alt);
     },
   })
-  .transform(await html);
+  .transform(new Response(html));
 
-Bun.write("dist/index.html", outputHtml);
+writeFile("dist/index.html", await outputHtml.bytes());
