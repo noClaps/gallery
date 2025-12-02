@@ -51,4 +51,5 @@ const outputHtml = new HTMLRewriter()
   })
   .transform(new Response(html));
 
+mkdirSync("dist");
 writeFile("dist/index.html", await outputHtml.bytes());
