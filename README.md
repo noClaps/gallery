@@ -4,7 +4,7 @@ A website to showcase some cool photos I've taken.
 
 ## Build instructions
 
-You'll need [Bun](https://bun.com).
+You'll need [UV](https://astral.sh/uv).
 
 1.  Clone the repository.
 
@@ -16,7 +16,8 @@ You'll need [Bun](https://bun.com).
 2.  Build the site.
 
     ```sh
-    bun build.ts
+    uv sync
+    uv run main.py
     ```
 
     This will build the site and place it in `dist/`.
