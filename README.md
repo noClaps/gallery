@@ -4,7 +4,7 @@ A website to showcase some cool photos I've taken.
 
 ## Build instructions
 
-You'll need [UV](https://astral.sh/uv).
+You'll need [uv](https://astral.sh/uv).
 
 1.  Clone the repository.
 
