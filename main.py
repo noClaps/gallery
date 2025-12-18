@@ -41,6 +41,6 @@ for img in html_parser.find_all("img"):
     img["height"] = str(height)
     img["src"] = f"data:image/avif;base64,{b64}"
 
-makedirs("dist")
+makedirs("dist", exist_ok=True)
 with open("dist/index.html", 'w') as f:
     f.write(str(html_parser))

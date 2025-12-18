@@ -9,7 +9,7 @@ You'll need [uv](https://astral.sh/uv).
 1.  Clone the repository.
 
     ```sh
-    git clone https://github.com/noClaps/gallery.git
+    git clone https://codeberg.org/noClaps/gallery.git
     cd gallery
     ```
 
