@@ -1,7 +1,7 @@
 on: [push, workflow_dispatch]
 jobs:
   deploy:
-    runs-on: codeberg-small-lazy
+    runs-on: codeberg-medium-lazy
     steps:
       - uses: https://code.forgejo.org/actions/checkout@v6
       - uses: https://github.com/astral-sh/setup-uv@v7
