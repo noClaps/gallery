@@ -1,13 +1,11 @@
 /* Colors generated using Realtime Colors: https://www.realtimecolors.com/ */
 :root {
-    --text: oklch(95.72% 0.006 154.48);
-    --background: oklch(15.45% 0.015 160.32);
-    --primary: oklch(72.56% 0.183 151.21);
+    --text: light-dark(oklch(25% 0 none), oklch(90% 0 none));
+    --background: light-dark(oklch(100% 0 none), oklch(20% 0 none));
+    --primary: light-dark(oklch(65% 0.175 150), oklch(75% 0.175 150));
     --on-primary: var(--background);
-    --secondary: oklch(51.36% 0.146 149.68);
-    --accent: oklch(74.75% 0.24 147.32);
 
-    color-scheme: dark;
+    color-scheme: light dark;
     font-family: system-ui;
     scroll-behavior: smooth;
 }
@@ -37,7 +35,7 @@ p {
 
 h1 {
     font-size: min(3rem, 10vmin);
-    color: var(--accent);
+    color: var(--primary);
     margin-top: 0.5rem;
 }
 

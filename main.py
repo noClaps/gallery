@@ -26,7 +26,7 @@ for img in html_parser.find_all("img"):
     print(f"Optimising {src}")
     img["title"] = img["alt"]
 
-    image = Image.thumbnail(src, 1000) # pyright:ignore
+    image = Image.thumbnail(src, 1000)
     assert type(image) is Image
 
     width = image.get("width")
